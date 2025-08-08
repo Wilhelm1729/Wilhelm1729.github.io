@@ -29,7 +29,7 @@
 </head>
 <body>
 
-  <h1>Enter the Secret Word</h1>
+  <h1>Enter</h1>
   <div id="inputContainer">
     <!-- 9 inputs with different background colors -->
     <input maxlength="1" class="letter-input" style="background-color: #ff0000">
@@ -47,6 +47,7 @@
   <div id="message"></div>
 
   <script>
+    // Sorry but you have to do it the proper way
     const encryptedMessage = ["0x1b", "0x27", "0x2c", "0x28", "0x20", "0x29", "0x2d", "0x6b", "0x21", "0x24", "0x75", "0x37", "0x23", "0x20", "0x6c", "0x1f", "0x6b", "0x37", "0x3e", "0x3c", "0x2f", "0x2f", "0x2c", "0x22", "0x2e"]
 
     function encryptMessage(message, key) {
@@ -76,9 +77,6 @@
     messageDiv.textContent = `Decrypted message: ${decrypted}`;
     }
 
-    // Example: Encrypt your own message using the secret word
-    // Call this in console to encrypt your custom message:
-    // encryptMessage("YourMessage", "TEST");
   </script>
 </body>
 </html>
