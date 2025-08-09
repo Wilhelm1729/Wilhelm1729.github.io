@@ -1,82 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Letter Puzzle</title>
+  <title>Link Buttons</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 40px;
+      background-color: #f9f9f9;
+      margin-top: 50px;
     }
-    .letter-input {
-      width: 40px;
-      height: 40px;
-      font-size: 24px;
-      text-align: center;
-      text-transform: uppercase;
-      margin: 5px;
-      border: 2px solid #ccc;
-      background-color: #ff9999;
-      color: white; 
+    .link-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
     }
-    #message {
-      margin-top: 20px;
-      font-size: 20px;
-      color: green;
+    .link-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <h1>Enter</h1>
-  <div id="inputContainer">
-    <!-- 9 inputs with different background colors -->
-    <input maxlength="1" class="letter-input" style="background-color: #ff0000">
-    <input maxlength="1" class="letter-input" style="background-color: #eeee00">
-    <input maxlength="1" class="letter-input" style="background-color: #ff4500">
-    <input maxlength="1" class="letter-input" style="background-color: #8b0000">
-    <input maxlength="1" class="letter-input" style="background-color: #111111">
-    <input maxlength="1" class="letter-input" style="background-color: #008000">
-    <input maxlength="1" class="letter-input" style="background-color: #ff0000">
-    <input maxlength="1" class="letter-input" style="background-color: #DAA520">
-    <input maxlength="1" class="letter-input" style="background-color: #800080">
-  </div>
+  <h1>Choose a Page</h1>
 
-  <button onclick="checkWord()">Submit</button>
-  <div id="message"></div>
+  <a href="triangle.html" class="link-button">Triangle</a>
+  <a href="titanpointe.html" class="link-button">Titanpointe</a>
+  <a href="alfvensalen.html" class="link-button">Alfvénsalen</a>
 
-  <script>
-    // Sorry but you have to do it the proper way
-    const encryptedMessage = ["0x1b", "0x27", "0x2c", "0x28", "0x20", "0x29", "0x2d", "0x6b", "0x21", "0x24", "0x75", "0x37", "0x23", "0x20", "0x6c", "0x1f", "0x6b", "0x37", "0x3e", "0x3c", "0x2f", "0x2f", "0x2c", "0x22", "0x2e"]
-
-    function encryptMessage(message, key) {
-      const keyBytes = [...key].map(c => c.charCodeAt(0));
-      const messageBytes = [...message].map(c => c.charCodeAt(0));
-      const encrypted = messageBytes.map((byte, i) => byte ^ keyBytes[i % keyBytes.length]);
-      console.log("Encrypted bytes:", encrypted.map(b => "0x" + b.toString(16).padStart(2, '0')));
-      return encrypted;
-    }
-
-    function decryptMessage(encryptedBytes, key) {
-      const keyBytes = [...key].map(c => c.charCodeAt(0));
-      const decrypted = encryptedBytes.map((byte, i) => String.fromCharCode(byte ^ keyBytes[i % keyBytes.length]));
-      return decrypted.join('');
-    }
-
-    function checkWord() {
-      const inputs = document.querySelectorAll('.letter-input');
-      let word = '';
-      inputs.forEach(input => {
-        word += input.value.toUpperCase();
-      });
-
-      const messageDiv = document.getElementById("message");
-
-    const decrypted = decryptMessage(encryptedMessage, word);
-    messageDiv.textContent = `Decrypted message: ${decrypted}`;
-    }
-
-  </script>
 </body>
 </html>
